@@ -16,6 +16,7 @@ def crop_func(event,x,y,flags,param):
             pts.append((x,y))
             q = True
         if len(pts) == 2:
+            ty, by, tx, bx = pts[0][1],pts[1][1],pts[0][0],pts[1][0]
             crop = img[ty:by, tx:bx]
             cv2.imshow('Frame',crop)
             
