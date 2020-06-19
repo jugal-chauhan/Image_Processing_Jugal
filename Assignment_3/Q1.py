@@ -1,30 +1,37 @@
 import cv2
-import numpy as np 
+import numpy as np
 import random
 
-img = cv2.imread('car.jpeg')
-print(img.shape)
-p = 0
-q = 0
+img = cv2.imread('dog.jpg')
+print(img.shape) #720, 960, 3
+x,y,z = img.shape
+print(x)
+print(y)
+print(z)
+x1 = 0
+y1 = 0
+xd = int(x/7)
+yd = int(y/7)
+x2 = xd
+y2 = yd
 
-#300 168 3
-x = int(300/7)
-y = int(168/7)
 
 while True:
-    x1 = 0
-    
-    while True:
-        cv2.rectangle(img,(p,q),(x,y),(random.randint(0,255),random.randint(0,255),random.randint(0,255)),-1)
-        p += q
-        x += y
+    while x2 <= x:
+        while y2 <= y:
+            cv2.imshow('frame',img)
+            rand = np.random.randint(0,255,(3))
+            img[x1:x2, y1:y2] = rand
 
-        if x > 640:
-            break
-    q += x
-    y += x
-    if y > 300:
+            y1 += yd
+            y2 += yd
+        y1 = 0
+        y2 = yd
+        x1 += xd
+        x2 += xd
+    if cv2.waitKey(0) & 0xFF == ord('q'):
         break
+cv2.destroyAllWindows()
 
-cv2.imshow('Frame', img)
+cv2.imshow('frame', img)
 cv2.waitKey(0)
