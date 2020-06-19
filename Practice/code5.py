@@ -12,6 +12,7 @@ cv2.putText(img, 'mozzarella', (100,100), cv2.FONT_HERSHEY_SIMPLEX, 5, (100,100,
 img[300:700, 400:700] = [0,0,0]
 
 cv2.imwrite('imwrite.jpg', img)
+print(img.shape)
 
 cv2.imshow('frame', img)
 cv2.waitKey(0)
