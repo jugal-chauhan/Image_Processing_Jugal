@@ -1,3 +1,5 @@
+# display equal square boxes of random color over written on an image
+
 import cv2
 import numpy as np
 import random
