@@ -2,7 +2,6 @@ from tkinter import *
 import tkinter as tk
 from tkinter import filedialog, Text
 from PIL import Image, ImageTk
-#from Backend_v2 import mouse , warp_function, Get_Image, blur_function, ocr_function, save_img, auto_crop
 import cv2
 import numpy as np
 import pytesseract 
@@ -13,7 +12,6 @@ import os
 og_img = np.zeros((), np.uint8)
 cropped = np.zeros((), np.uint8)
 ocr_image = np.zeros((), np.uint8)
-
 text = ''
 
 #GUI main loop
@@ -21,15 +19,13 @@ root = tk.Tk()
 root.title('GUI for OCR')
 canvas = tk.Canvas(root, height = 900, width = 1200, bg = "#662261")
 canvas.pack()
-
 frame = tk.Frame(root, bg = "#FFEDB5")
-frame.place(relwidth = 0.6, relheight = 0.9, relx = 0.37, rely = 0.05)
-
+frame.place(relwidth = 0.5, relheight = 0.9, relx = 0.37, rely = 0.05)
 text_box = tk.Frame(frame, bg="#FFBF00")
-text_box.place(relwidth = 0.6, relheight = 0.6, relx = 0.2, rely = 0.2)
+text_box.place(relwidth = 0.6, relheight = 0.7, relx = 0.2, rely = 0.2)
 
 def open_btn_clicked():
-    filename = filedialog.askopenfilename(initialdir = "/Users/jugal/covid/tkr/",title = 'Select an Image',filetypes = (('JPG','*.jpg'),('All files','*.*')))
+    filename = filedialog.askopenfilename(initialdir = "/Users/jugal/Desktop/Github/Image_Processing_jugal/Task_1",title = 'Select an Image',filetypes = (('JPG','*.jpg'),('All files','*.*')))
     print(filename)
 
     global og_img
@@ -150,40 +146,40 @@ def save_txt_file():
 def Close_All_Windows():
     cv2.destroyAllWindows()
 
-label=tk.Label(frame,text='GUI for OCR',fg='black',bg='white',font=('Bold',20))
-label.place(relx=0.3,rely=0.1)
+label=tk.Label(frame,text='GUI for OCR : Jugal Chauhan',fg='black', bg='white' ,font=('Bold',20))
+label.place(relx=0.28,rely=0.08)
 
 open_btn = tk.Button(canvas,text = 'Open Image',fg = 'black',padx = 5,pady = 5, command = open_btn_clicked)
-open_btn.place(relx=0.04,rely=0.05)
+open_btn.place(relx=0.065,rely=0.17)
 
-blur_img_btn=tk.Button(canvas,text='Blur Image',fg = 'black',padx = 5,pady = 5, command = blur_img)
-blur_img_btn.place(relx=0.04,rely=0.15)
+blur_img_btn=tk.Button(canvas,text='Blur',fg = 'black',padx = 5,pady = 5, command = blur_img)
+blur_img_btn.place(relx = 0.225,rely=0.23)
 
-auto_crop_btn=tk.Button(canvas,text='Auto Crop',fg = 'black',padx = 5,pady = 5, command = auto_crop)
-auto_crop_btn.place(relx=0.04,rely=0.25)
+auto_crop_btn=tk.Button(canvas,text='Automatic Crop',fg = 'black',padx = 5,pady = 5, command = auto_crop)
+auto_crop_btn.place(relx=0.065,rely=0.29)
 
 manual_crop_btn=tk.Button(canvas,text='Manual Crop',fg = 'black',padx = 5,pady = 5, command = manual_crop)
-manual_crop_btn.place(relx=0.04,rely=0.35)
+manual_crop_btn.place(relx=0.225,rely=0.35)
 
 g_btn=tk.Button(canvas,text='Gray Image',fg = 'black',padx = 5,pady = 5, command = grayscale)
-g_btn.place(relx=0.04,rely=0.45)
+g_btn.place(relx=0.065,rely=0.41)
 
-h_btn=tk.Button(canvas,text='Gray Image',fg = 'black',padx = 5,pady = 5, command = hsv)
-h_btn.place(relx=0.04,rely=0.55)
+h_btn=tk.Button(canvas,text='HSV Image',fg = 'black',padx = 5,pady = 5, command = hsv)
+h_btn.place(relx=0.225,rely=0.47)
 
 OCR_btn=tk.Button(canvas,text='OCR',fg = 'black',padx = 5,pady = 5, command = OCR_btn)
-OCR_btn.place(relx=0.04,rely=0.65)
+OCR_btn.place(relx=0.065,rely=0.53)
 
 show_text_btn=tk.Button(canvas,text='Show text',fg = 'black',padx = 5,pady = 5, command = show_text)
-show_text_btn.place(relx=0.04,rely=0.75)
+show_text_btn.place(relx=0.225,rely=0.59)
 
 save_img_btn=tk.Button(canvas,text='Save Image',fg = 'black',padx = 5,pady = 5, command = save_img)
-save_img_btn.place(relx=0.04,rely=0.85)
+save_img_btn.place(relx=0.065,rely=0.65)
 
-save_btn = tk.Button(canvas, text='save as .txt', fg = 'black',padx = 5,pady = 5, command=save_txt_file)
-save_btn.place(relx=0.04, rely=0.95)
+save_btn = tk.Button(canvas, text='Save Text as .txt', fg = 'black',padx = 5,pady = 5, command=save_txt_file)
+save_btn.place(relx=0.225, rely=0.71)
 
 Close_All_Windows_btn = tk.Button(canvas, text = 'Close All Windows', fg = 'black', padx = 5, pady = 5, command = Close_All_Windows)
-Close_All_Windows_btn.place(relx = 0, rely = 0)
+Close_All_Windows_btn.place(relx = 0.065, rely = 0.77)
 
 root.mainloop()
