@@ -1,0 +1,16 @@
+This explains the whole process of this GUI Application
+
+Once the GUI App is running, there a following steps you need to follow to view all the functionalities.
+They are :
+
+Step 1 - Click on Open Image
+Step 2 - Click on 'Blur'. A new window with a blurred image will pop up
+Step 3 - Click on 'Automatic Crop'. This button will automatically crop the provided image by analysing contours
+Step 4 - Click on 'Manual Crop'. This will open a new window which allows you 4 clicks to crop an area manually
+Step 5 - Clickin on 'Gray Image' and 'HSV Image' will provide you 2 new frames by which you can differentiate BGR, GRAYSCALE, and HSV images
+Step 6 - If your chosen image does not have any text and you are fed up of all the windows, Click on 'Close All Windows'.
+Step 7 - Open another image which has text present on it and click on 'OCR'. A new window will pop up where using Pytesseract we converted the image to text
+Step 8 - On clicking the 'Show Text' box, all the converted text will appear in the text box
+Step 9 - You can save image using 'Save Image' button
+Step 10 -  You can also save the text on the tex box into a .txt file by clicking on 'Save Text' button
+Step 11 - Once you are done using the app, close all windows and close the python app

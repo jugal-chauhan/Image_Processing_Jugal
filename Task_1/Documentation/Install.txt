@@ -1,0 +1,12 @@
+To install this GUI Application, there are a few requirements as follows :
+
+- Python version 3 and above
+- Import libraries like :
+    - tkinter
+    - PIL
+    - cv2
+    - numpy
+    - os
+    - pytesseract
+
+If all of the requirements are fulfilled then this Application can be run through a simple comand prompt also
